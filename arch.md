@@ -1,4 +1,4 @@
----
+
 
 ### **🌩️ PROJECT NEON-STREAM: SYSTEM SCHEMATIC v2.0**
 
@@ -40,7 +40,6 @@
 
 ```
 
----
 
 ### **🛠️ Technical Breakdown: "Blade Runner" Protocol**
 
