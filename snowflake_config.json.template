@@ -1,0 +1,13 @@
+{
+    "account": "your_account_identifier",
+    "url": "https://your_account_identifier.snowflakecomputing.com",
+    "user": "SENSEHAT_STREAMING_USER",
+    "role": "SENSEHAT_STREAMING_ROLE",
+    "database": "DEMO",
+    "schema": "DEMO",
+    "pipe": "SENSEHAT_STREAMING_PIPE",
+    "channel_name": "SENSEHAT_CHNL",
+    "private_key_file": "rsa_key.p8",
+    "private_key_passphrase": null,
+    "pat_token": null
+}

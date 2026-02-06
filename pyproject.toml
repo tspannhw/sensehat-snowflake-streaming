@@ -1,0 +1,96 @@
+[project]
+name = "sensehat-snowflake-streaming"
+version = "1.0.0"
+description = "Stream Raspberry Pi Sense HAT sensor data to Snowflake via Snowpipe Streaming v2 REST API"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Timothy Spann", email = "tspann@snowflake.com" }
+]
+keywords = [
+    "snowflake",
+    "snowpipe",
+    "streaming",
+    "raspberry-pi",
+    "sense-hat",
+    "iot",
+    "sensors"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Internet :: Log Analysis",
+]
+
+dependencies = [
+    "requests>=2.28.0",
+    "PyJWT>=2.8.0",
+    "cryptography>=41.0.0",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+pi = [
+    "sense-hat>=2.6.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+all = [
+    "sensehat-snowflake-streaming[pi,dev]",
+]
+
+[project.scripts]
+sensehat-stream = "main:main"
+
+[project.urls]
+Homepage = "https://github.com/tspannhw/RPIThermalStreaming"
+Documentation = "https://github.com/tspannhw/RPIThermalStreaming#readme"
+Repository = "https://github.com/tspannhw/RPIThermalStreaming"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
